@@ -1,0 +1,3 @@
+# 0001 — SQLite first, Postgres later, via Drizzle ORM
+
+The store's MVP uses SQLite while the catalog is small and the app is single-node; it will move to PostgreSQL as traffic and the catalog grow. We use Drizzle ORM so both dialects are served by one schema syntax and `drizzle-kit` migrations, making the swap an environment change rather than a rewrite. Prisma was the alternative and was rejected because its per-dialect migration layers would tangle the SQLite→Postgres switch. Prices are stored as integer toman and snapshotted onto Order Items at order time so price history survives later catalog edits.

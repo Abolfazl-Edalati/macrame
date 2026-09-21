@@ -1,0 +1,28 @@
+# Claude Code — local machine config and worktrees
+.claude/settings.local.json
+.claude/worktrees/
+
+# leftover font extraction scratch
+.font-tmp/
+
+# dependencies and build output
+node_modules/
+.next/
+out/
+
+# databases
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+data/
+
+# environment files (see aasoo-scaffold/.gitignore for the app's own rules)
+.env
+.env.*
+!.env.example
+
+# logs and OS noise
+*.log
+.DS_Store
+Thumbs.db

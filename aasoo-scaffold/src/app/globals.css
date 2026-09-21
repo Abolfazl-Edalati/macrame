@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #faf7f2;
+  --foreground: #171717;
+  --accent: #b45309; /* amber-700 */
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-feature-settings: "kern";
+}
