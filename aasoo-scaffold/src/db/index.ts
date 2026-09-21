@@ -14,12 +14,21 @@ sqlite.exec("PRAGMA journal_mode = WAL;");
 
 type Method = "all" | "get" | "run" | "values";
 
+// sqlite-proxy expects positional value arrays, not row objects: drizzle maps
+// them onto schema column order itself. Returning objects would make every
+// field read undefined (the empty-fields bug).
+function rowsAsValues(stmt: ReturnType<typeof sqlite.prepare>, params: any[]) {
+  return stmt
+    .all(...params)
+    .map((r) => Object.values(r as Record<string, unknown>));
+}
+
 const run = (method: Method, sql: string, params: any[]): any[] => {
   const stmt = sqlite.prepare(sql);
   switch (method) {
     case "all":
     case "get": {
-      const rows = stmt.all(...params) as Record<string, unknown>[];
+      const rows = rowsAsValues(stmt, params);
       return method === "get" ? rows.slice(0, 1) : rows;
     }
     case "run": {
@@ -37,17 +46,11 @@ const run = (method: Method, sql: string, params: any[]): any[] => {
       ];
     }
     case "values": {
-      // stmt.raw() isn't on DatabaseSync in older node; map rows to arrays of values
-      return stmt
-        .all(...params)
-        .map((r) => Object.values(r as Record<string, unknown>));
+      return rowsAsValues(stmt, params);
     }
   }
 };
 
-export const db = drizzle(
-  async (sql, params, method) => {
-    return { rows: run(method, sql, params) };
-  },
-  { schema },
-);
+export const db = drizzle(async (sql, params, method) => {
+  return { rows: run(method, sql, params) };
+}, { schema });

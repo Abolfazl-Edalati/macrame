@@ -7,6 +7,10 @@ export const metadata: Metadata = {
   description: "فروشگاه محصولات مکرومه دست‌بافت آسو",
 };
 
+// The catalog changes whenever products are added or published from the admin,
+// so it must be rendered per request, not prerendered at build time.
+export const dynamic = "force-dynamic";
+
 export default async function ProductsPage() {
   const products = await getPublishedProducts();
   return (

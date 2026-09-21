@@ -3,6 +3,10 @@ import Link from "next/link";
 import { getRecentProducts } from "@/db/queries";
 import { ProductCard } from "@/components/product-card";
 
+// The newest-products strip reads the catalog, which changes whenever products
+// are added or published, so render per request instead of prerendering.
+export const dynamic = "force-dynamic";
+
 export default async function HomePage() {
   const products = await getRecentProducts(6);
 
