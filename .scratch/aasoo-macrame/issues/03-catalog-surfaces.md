@@ -4,14 +4,14 @@
 
 **Blocked by:** 01 (Test harness and driver regression) — the regression test asserting a Product's fields render belongs to this surface and is written there.
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] The home page renders the hero, the newest published Products in a grid, and the editorial story band.
-- [ ] The catalog page lists every published Product.
-- [ ] Each product page shows the name, description, images and price.
-- [ ] A made-to-order Product shows its availability label and how many days it takes; an in-stock Product shows it is available now.
-- [ ] Prices appear in toman with Persian digits and the toman suffix.
-- [ ] A Product saved as a draft appears on no public page and in the sitemap.
-- [ ] Product pages carry metadata for search engines, and the sitemap lists every published Product with its last-modified time.
-- [ ] A product page for an unknown slug returns the Persian 404 from 02.
-- [ ] Route-boundary tests assert the above by fetching these pages and checking the response bodies.
+- [x] The home page renders the hero, the newest published Products in a grid, and the editorial story band.
+- [x] The catalog page lists every published Product.
+- [x] Each product page shows the name, description, images and price.
+- [x] A made-to-order Product shows its availability label and how many days it takes; an in-stock Product shows it is available now.
+- [x] Prices appear in toman with Persian digits and the toman suffix.
+- [x] A Product saved as a draft appears on no public page and in the sitemap.
+- [x] Product pages carry metadata for search engines, and the sitemap lists every published Product with its last-modified time.
+- [x] A product page for an unknown slug returns the Persian 404 from 02.
+- [x] Route-boundary tests assert the above by fetching these pages and checking the response bodies.

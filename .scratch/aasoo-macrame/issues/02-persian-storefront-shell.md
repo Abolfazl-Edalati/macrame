@@ -4,12 +4,12 @@
 
 **Blocked by:** None (can start immediately).
 
-**Status:** ready-for-agent
+**Status:** done
 
-- [ ] The root layout sets `lang="fa"` and `dir="rtl"`, and IRAN Sans loads as a local font so no Persian text falls back to a mismatched system face.
-- [ ] Every route renders inside the same header and footer.
-- [ ] Header and footer link to the contact page and to the Instagram and Telegram handles.
-- [ ] The contact page explains how a custom order request works and links to both channels.
-- [ ] An unknown path returns a Persian 404 page, not the framework default.
-- [ ] Currency and dates render through Persian-locale formatters wherever they appear in this shell.
-- [ ] Route-boundary tests from 01 pass against these pages.
+- [x] The root layout sets `lang="fa"` and `dir="rtl"`, and IRAN Sans loads as a local font so no Persian text falls back to a mismatched system face.
+- [x] Every route renders inside the same header and footer.
+- [x] Header and footer link to the contact page and to the Instagram and Telegram handles.
+- [x] The contact page explains how a custom order request works and links to both channels.
+- [x] An unknown path returns a Persian 404 page, not the framework default.
+- [x] Currency and dates render through Persian-locale formatters wherever they appear in this shell.
+- [x] Route-boundary tests from 01 pass against these pages.
